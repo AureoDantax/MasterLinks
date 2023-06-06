@@ -32,7 +32,7 @@ body {
   --stroke-color: #0000005a;
   --surface-color: #0000001a;
   --surface-color-hover: #00000035;
-  --highlight-color: #00000013;
+  --highlight-color: #00000021;
   --switch-bg-url: url(assets/sun.svg);
   --switch-bg: #ffffff;
   --switch-bd-color: #00000070;
@@ -59,6 +59,10 @@ body {
   font-weight: 500;
   line-height: 24px;
   margin-top: 8px;
+  
+}
+#profile a{
+  text-decoration: none;
 }
 
 #switch {
@@ -80,12 +84,19 @@ body {
   z-index: 1;
   left: 0;
   transform: translateY(-50%);
+  animation: slide-out 0.2s ;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
 }
+
+#switch button:hover{
+  outline: 6px solid var(--highlight-color);
+   transition: outline 0.5s;
+}
+
+  
 
 #switch span {
   display: block;
@@ -165,5 +176,23 @@ footer {
   }
   .light {
     --bg-url: url(assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animação */
+@keyframes slide-in {
+  from{
+    left: 0;
+  }
+  to{
+    left: 50%;
+  }
+}
+@keyframes slide-out{
+  from{
+    left: 50%;
+  }
+  to{
+    left: 0;
   }
 }
